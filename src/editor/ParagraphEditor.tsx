@@ -56,7 +56,7 @@ export default function ParagraphEditor()
           onChange={(newEditorState) =>
             handleChange(newEditorState, index)
           }
-          placeholder={`Paragraph ${index + 1}`}
+          placeholder={`Write your note...`}
           suggestionTags={suggestionTags}
           onClickDelete={() => handleEditorStateDelete(editorState.id)}
         />

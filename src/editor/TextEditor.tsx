@@ -251,18 +251,19 @@ export default function TextEditor(props: {
           keyBindingFn={keyBindingFn}
           handleKeyCommand={handleKeyCommand}
         />
-        <Suggestions
-          position={getCaretCoordinates()}
-          autoCompleteState={autoCompleteState}
-          renderSuggestion={(suggestion) =>
-          {
-            renderSuggestion(suggestion);
-          }}
-          selectedIndex={selectedIndex}
-          matchSuggestions={matchSuggestions}
-          setSelectedIndex={setSelectedIndex}
-        />
       </div>
+      <Suggestions
+        position={getCaretCoordinates()}
+        autoCompleteState={autoCompleteState}
+        renderSuggestion={(suggestion) =>
+        {
+          renderSuggestion(suggestion);
+        }}
+        selectedIndex={selectedIndex}
+        matchSuggestions={matchSuggestions}
+        setSelectedIndex={setSelectedIndex}
+      />
+
     </React.Fragment>
   );
 }
