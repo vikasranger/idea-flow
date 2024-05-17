@@ -98,7 +98,8 @@
   cursor: pointer;
 }
 
-.delete-button:hover{
+.delete-button:hover
+{
   background-color: #f3f3f3;
 }
 
@@ -123,7 +124,8 @@ li
   cursor: pointer;
 }
 
-li:hover{
+li:hover
+{
   background-color: #4dc2d610;
 }
 
@@ -131,4 +133,18 @@ li:hover{
 {
   color: #009fbb;
   background-color: #4dc2d610;
+}
+
+/* Media query for small screens */
+@media (max-width: 600px)
+{
+  .main-header
+  {
+    width: 90%;
+  }
+
+  .editor-container
+  {
+    width: 90%;
+  }
 }
