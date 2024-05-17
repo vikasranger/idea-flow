@@ -1,5 +1,6 @@
 import {IPosition} from "../editor/Types.ts";
 import {ISuggestion} from "../editor/Types.ts";
+import "./Styles.css"
 
 export default function Suggestions(props: {
   autoCompleteState: string | null,

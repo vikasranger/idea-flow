@@ -119,10 +119,16 @@ ul
 
 li
 {
-  padding: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+li:hover{
+  background-color: #4dc2d610;
 }
 
 .selected
 {
-  background-color: skyblue;
+  color: #009fbb;
+  background-color: #4dc2d610;
 }

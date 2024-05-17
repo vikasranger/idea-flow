@@ -12,3 +12,10 @@
 {
   background-color: #4dc2d630;
 }
+
+.suggestions
+{
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 10px;
+  background-color: #fcfcfc;
+}
