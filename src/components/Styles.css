@@ -1,0 +1,14 @@
+.hashTag
+{
+  color: #009fbb;
+  font-weight: 500;
+  font-style: italic;
+  padding: 2px;
+  border-radius: 4px;
+  background-color: #4dc2d610;
+}
+
+.hashTag:hover
+{
+  background-color: #4dc2d630;
+}

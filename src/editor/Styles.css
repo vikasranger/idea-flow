@@ -1,0 +1,132 @@
+.main-container
+{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.main-header
+{
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 16px 0;
+  gap: 10px;
+  width: 60%;
+}
+
+.divider
+{
+  width: 100%;
+  border-top: 1px solid #dcdcdc;
+}
+
+.search
+{
+  margin: 0;
+  padding: 0 8px 0 10px;
+  height: 36px;
+  background-color: #f1f4f4;
+  border-radius: 4px;
+  outline: none;
+  border-color: transparent;
+  color: #1c2323;
+  line-height: 1.15;
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+.add-button
+{
+  background-color: #19bbd7;
+  color: white;
+  height: 36px;
+  width: 36px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-button:hover
+{
+  background-color: #0cb1cd;
+}
+
+.edit-img
+{
+  height: 20px;
+  width: 20px;
+}
+
+.Title
+{
+  text-align: center;
+}
+
+.editor-container
+{
+
+  width: 60%;
+  padding: 16px;
+}
+
+.Editor
+{
+  position: relative;
+  padding: 24px;
+  border-bottom: 1px solid #dcdcdc;
+  min-height: 50px;
+}
+
+.Editor
+{
+  box-shadow: rgba(149, 157, 165, 0.05) 0px 8px 24px;
+}
+
+.delete-button
+{
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  padding: 2px;
+  border-radius: 2px;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-button:hover{
+  background-color: #f3f3f3;
+}
+
+.suggestions
+{
+  position: absolute;
+  border: 1px solid #ededed;
+  margin-top: 20px;
+  z-index: 999;
+}
+
+ul
+{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li
+{
+  padding: 10px;
+}
+
+.selected
+{
+  background-color: skyblue;
+}
