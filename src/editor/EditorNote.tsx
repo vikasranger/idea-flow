@@ -89,7 +89,7 @@ export default function EditorNote(props: {
   const renderSuggestion = (suggestion: ISuggestion) =>
   {
     onChange({
-      state: addHashTag(editorState, suggestion.text),
+      state: addHashTag(editorState, suggestion.label),
       id: id
     });
     setAutoCompleteState(null);
