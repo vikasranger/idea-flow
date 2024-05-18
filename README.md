@@ -1,3 +1,22 @@
+
+# Implementation 
+- Add note through add button next search
+- On <> type show suggestions of already written notes
+- First suggestion is always selected
+- U can navigate in suggestion list through key up and down, it will highlight the suggestion
+- Selected suggestion will be added into current paragraph as span with it own styles 
+- Backspace will remove the full "autocompleted entry"
+- Search functionally 
+
+Check out : [IdeaflowEditor](https://idea-flow-alpha.vercel.app/)
+
+![Image1](src/assets/idea1.png)
+![Image2](src/assets/idea2.png)
+![Image3](src/assets/idea3.png)
+![Image4](src/assets/idea4.png)
+
+## 🚀===================================
+
 # Ideaflow Technical JS take home
 
 Thanks for your interest in Ideaflow!
