@@ -1,7 +1,16 @@
+:root
+{
+  --bgcolor: #fcfcfc;
+  --max-width: 720px;
+  --main-width: 60%;
+  --divider-color: #dcdcdc;
+  --hashtag-color: #009fbb;
+  --hashtag-bg-color: #4dc2d610;
+}
+
 #root
 {
-  background-color: #fcfcfc;
-  max-width: 1280px;
+  background-color: var(--bgcolor);
   width: 100%;
   display: flex;
   justify-content: center;

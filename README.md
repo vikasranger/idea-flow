@@ -6,7 +6,7 @@
 - U can navigate in suggestion list through key up and down, it will highlight the suggestion
 - Selected suggestion will be added into current paragraph as span with it own styles 
 - Backspace will remove the full "autocompleted entry"
-- Search functionally 
+- Delete note and Search functionally
 
 Check out : [IdeaflowEditor](https://idea-flow-alpha.vercel.app/)
 

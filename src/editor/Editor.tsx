@@ -71,7 +71,7 @@ export default function Editor()
           onChange={e => handleSearch(e.target.value)}
           className={"search"}
         />
-        <button className={"add-button"} onClick={addParagraph}>
+        <button className={"add-button"} title={"add button"} onClick={addParagraph}>
           <img className={"edit-img"} src={edit} alt={"edit"} />
         </button>
       </div>
