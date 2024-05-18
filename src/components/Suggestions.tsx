@@ -1,6 +1,6 @@
 import {IPosition} from "../editor/Types.ts";
 import {ISuggestion} from "../editor/Types.ts";
-import "./Styles.css"
+import "./ComponentStyles.css";
 
 export default function Suggestions(props: {
   autoCompleteState: string | null,
@@ -25,15 +25,15 @@ export default function Suggestions(props: {
   return (
     <div className="suggestions" style={position}>
       <ul>
-        {matchSuggestions.map((result, index) => (
+        {matchSuggestions.map((suggestion, index) => (
           <li
             key={index}
-            id={`suggestions${index + 1}`}
+            id={suggestion.id}
             className={selectedIndex === index ? "selected" : ""}
             onMouseDown={(e) =>
             {
               e.preventDefault();
-              renderSuggestion(result);
+              renderSuggestion(suggestion);
             }}
             onMouseEnter={(e) =>
             {
@@ -41,7 +41,7 @@ export default function Suggestions(props: {
               setSelectedIndex(index);
             }}
           >
-            {result.label}
+            {suggestion.label}
           </li>
         ))}
       </ul>

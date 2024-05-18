@@ -3,13 +3,13 @@ import {EditorCommand} from "draft-js";
 import {Editor, EditorState, getDefaultKeyBinding, Modifier} from "draft-js";
 import "draft-js/dist/Draft.css";
 import React, {KeyboardEvent, useEffect, useState} from "react";
-import "./Styles.css";
+import "./EditorStyles.css";
 import Suggestions from "../components/Suggestions.tsx";
 import {IPosition} from "./Types.ts";
 import {IEditorState} from "./Types.ts";
 import {ISuggestion} from "./Types.ts";
 
-export default function TextEditor(props: {
+export default function EditorNote(props: {
   id: string,
   editorState: EditorState,
   onChange: (editorState: IEditorState) => void,
@@ -255,10 +255,7 @@ export default function TextEditor(props: {
       <Suggestions
         position={getCaretCoordinates()}
         autoCompleteState={autoCompleteState}
-        renderSuggestion={(suggestion) =>
-        {
-          renderSuggestion(suggestion);
-        }}
+        renderSuggestion={renderSuggestion}
         selectedIndex={selectedIndex}
         matchSuggestions={matchSuggestions}
         setSelectedIndex={setSelectedIndex}

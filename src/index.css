@@ -1,12 +1,13 @@
 :root
 {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-family: sans-serif;
   font-weight: 400;
-
-  font-synthesis: none;
+  color: #1c2323;
+  font-size: 1rem;
+  line-height: 1.45;
+  letter-spacing: .005rem;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -31,7 +32,6 @@ body
 {
   display: flex;
   min-width: 320px;
-  min-height: 100vh;
 }
 
 button

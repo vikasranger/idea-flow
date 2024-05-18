@@ -1,5 +1,5 @@
 import React from "react";
-import "./Styles.css";
+import "./ComponentStyles.css";
 
 export default function Hashtag(props: {
   children: React.ReactNode

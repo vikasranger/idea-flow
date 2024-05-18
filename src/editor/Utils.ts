@@ -7,7 +7,7 @@ import Hashtag from "../components/Hashtag.tsx";
 import {ISuggestion} from "./Types.ts";
 import {IEditorState} from "./Types.ts";
 
-const MAX_LENGTH_SUGGESTION = 15;
+const MAX_LENGTH_SUGGESTION = 25;
 export const findHashtagEntities = (contentBlock: ContentBlock,
   callback: (start: number, end: number) => void,
   contentState: ContentState) =>
@@ -66,4 +66,15 @@ export function getSuggestionTags(editorStates: IEditorState[]): ISuggestion[]
     }
   });
   return suggestionTags;
+}
+
+export function getFilteredState(editorStates: IEditorState[], searchText: string)
+{
+  if(searchText.length === 0) return editorStates;
+  return editorStates.filter(editorState =>
+  {
+    const plainText = editorState.state.getCurrentContent().getPlainText();
+    if(!plainText) return true;
+    return plainText.toLowerCase().includes(searchText.toLowerCase());
+  });
 }

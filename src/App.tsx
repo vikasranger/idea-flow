@@ -1,10 +1,10 @@
 import "./App.css";
-import ParagraphEditor from "./editor/ParagraphEditor.tsx";
+import Editor from "./editor/Editor.tsx";
 
 function App()
 {
   return (
-    <ParagraphEditor />
+    <Editor />
   );
 }
 

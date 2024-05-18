@@ -1,74 +1,66 @@
 import "draft-js/dist/Draft.css";
+import {Fragment} from "react";
+import {useCallback} from "react";
 import {useState} from "react";
-import "./Styles.css";
+import "./EditorStyles.css";
 import edit from "../assets/edit.png";
-import TextEditor from "./TextEditor.tsx";
+import EditorNote from "./EditorNote.tsx";
 import {IEditorState, ISuggestion} from "./Types.ts";
+import {getFilteredState} from "./Utils.ts";
 import {getSuggestionTags} from "./Utils.ts";
 import {getEditorState} from "./Utils.ts";
 
-function getFilteredState(editorStates: IEditorState[], searchText: string)
-{
-  if(searchText.length === 0) return editorStates;
-  return editorStates.filter(editorState =>
-  {
-    const plainText = editorState.state.getCurrentContent().getPlainText();
-    if(!plainText) return true;
-    return plainText.toLowerCase().includes(searchText.toLowerCase());
-  });
-}
-
-export default function ParagraphEditor()
+export default function Editor()
 {
   const [editorStates, setEditorStates] = useState<IEditorState[]>([getEditorState()]);
   const [suggestionTags, setSuggestionTags] = useState<ISuggestion[]>([]);
   const [searchText, setSearchText] = useState<string>("");
-  const addParagraph = () =>
+
+  const addParagraph = useCallback(() =>
   {
     setEditorStates([...editorStates, getEditorState()]);
-  };
+  }, [editorStates]);
 
-  const handleChange = (newEditorState: IEditorState, index: number) =>
+  const handleChange = useCallback((newEditorState: IEditorState, index: number) =>
   {
-    console.log({editorStates});
-    console.log({newEditorState});
     const newEditorStates = [...editorStates];
     newEditorStates[index] = newEditorState;
     setEditorStates(newEditorStates);
     setSuggestionTags(getSuggestionTags(newEditorStates));
-  };
+  }, [editorStates]);
 
-  const handleEditorStateDelete = (id: string) =>
+  const handleEditorStateDelete = useCallback((id: string) =>
   {
-    console.log(id);
     const newStates = editorStates.filter(editorState => editorState.id !== id);
     setEditorStates(newStates);
-  };
+  }, [editorStates]);
 
-  const renderParagraphs = () =>
-  {
-    const filteredState = getFilteredState(editorStates, searchText);
-    return filteredState.map((editorState, index) => (
-      <div key={editorState.id}>
-        <TextEditor
-          id={editorState.id}
-          editorState={editorState.state}
-          onChange={(newEditorState) =>
-            handleChange(newEditorState, index)
-          }
-          placeholder={`Write your note...`}
-          suggestionTags={suggestionTags}
-          onClickDelete={() => handleEditorStateDelete(editorState.id)}
-        />
-      </div>
-    ));
-  };
-
-  const handleSearch = (value: string) =>
+  const handleSearch = useCallback((value: string) =>
   {
     setSearchText(value);
-    console.log(value);
-  };
+  }, [setSearchText]);
+
+  const renderParagraphs = useCallback(() =>
+  {
+    const filteredState = getFilteredState(editorStates, searchText);
+    return (
+      <Fragment>
+        {filteredState.map((editorState, index) => (
+          <div key={editorState.id}>
+            <EditorNote
+              id={editorState.id}
+              editorState={editorState.state}
+              onChange={(newEditorState) =>
+                handleChange(newEditorState, index)
+              }
+              placeholder={`Write your note...`}
+              suggestionTags={suggestionTags}
+              onClickDelete={() => handleEditorStateDelete(editorState.id)}
+            />
+          </div>
+        ))}
+      </Fragment>);
+  }, [editorStates, searchText, suggestionTags, handleEditorStateDelete, handleChange]);
 
   return (
     <div className={"main-container"}>
