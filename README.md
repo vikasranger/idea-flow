@@ -15,6 +15,13 @@ Check out : [IdeaflowEditor](https://idea-flow-alpha.vercel.app/)
 ![Image3](src/assets/idea3.png)
 ![Image4](src/assets/idea4.png)
 
+# Get started
+project is create through [vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) 
+```
+npm install
+npm run dev
+```
+
 ## 🚀===================================
 
 # Ideaflow Technical JS take home
@@ -71,12 +78,3 @@ Share your code on Github with `taylormitchell`. You can also send us a zip arch
 
 We recommend using Vercel https://vercel.com/guides/deploying-react-with-vercel-cra
 Feel free to use another provider if required.
-
-## Get started
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-```
-yarn
-yarn start
-```
