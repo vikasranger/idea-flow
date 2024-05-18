@@ -1,4 +1,3 @@
-import {convertToRaw} from "draft-js";
 import {EditorState} from "draft-js";
 import {ContentBlock, ContentState} from "draft-js";
 import {CompositeDecorator} from "draft-js";
@@ -45,8 +44,7 @@ export function getSuggestionTags(editorStates: IEditorState[]): ISuggestion[]
   const suggestionTags: ISuggestion[] = [];
   editorStates.forEach(editorState =>
   {
-    const blocks = convertToRaw(editorState.state.getCurrentContent()).blocks;
-    const value = blocks.map(block => (!block.text.trim() && " / ") || block.text).join(" / ");
+    const value = editorState.state.getCurrentContent().getPlainText().replace("\n", "\\ ");
     if(value.length > MAX_LENGTH_SUGGESTION)
     {
       const part = value.slice(0, MAX_LENGTH_SUGGESTION - 3);
@@ -56,7 +54,7 @@ export function getSuggestionTags(editorStates: IEditorState[]): ISuggestion[]
         text: part
       });
     }
-    else
+    else if(value.length > 0)
     {
       suggestionTags.push({
         id: editorState.id,
