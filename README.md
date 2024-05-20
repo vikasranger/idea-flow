@@ -3,7 +3,7 @@
 - Add note through add button next search
 - On <> enter, show suggestions of already written notes
 - First suggestion is always selected
-- U can navigate in suggestion list through key up and down, it will highlight the suggestion
+- You can navigate in suggestion list through key up and down, it will highlight the suggestion
 - Selected suggestion will be added into current paragraph as span with it own styles 
 - Backspace will remove the full "autocompleted entry"
 - Delete note and Search functionally
