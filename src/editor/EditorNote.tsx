@@ -155,6 +155,25 @@ export default function EditorNote(props: {
     }
   };
 
+  const keyBindingFn = (e: KeyboardEvent) =>
+  {
+    if(matchSuggestions.length > 0 && e.keyCode === 13)
+    {
+      return "addAutoComplete";
+    }
+    return getDefaultKeyBinding(e);
+  };
+
+  const handleKeyCommand = (command: EditorCommand): DraftHandleValue =>
+  {
+    if(command === "addAutoComplete")
+    {
+      renderSuggestion(matchSuggestions[selectedIndex]);
+      return "handled";
+    }
+    return "not-handled";
+  };
+
   useEffect(() =>
   {
     const triggerRange = getTriggerRange("<>");
@@ -177,25 +196,6 @@ export default function EditorNote(props: {
       filterSuggestion();
     }
   }, [autoCompleteState]);
-
-  const keyBindingFn = (e: KeyboardEvent) =>
-  {
-    if(matchSuggestions.length > 0 && e.keyCode === 13)
-    {
-      return "addAutoComplete";
-    }
-    return getDefaultKeyBinding(e);
-  };
-
-  const handleKeyCommand = (command: EditorCommand): DraftHandleValue =>
-  {
-    if(command === "addAutoComplete")
-    {
-      renderSuggestion(matchSuggestions[selectedIndex]);
-      return "handled";
-    }
-    return "not-handled";
-  };
 
   return (
     <React.Fragment>
